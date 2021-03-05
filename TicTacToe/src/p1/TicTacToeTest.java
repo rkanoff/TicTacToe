@@ -2,14 +2,14 @@ package p1;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-//test
+
 public class TicTacToeTest
 {
 	public static void main(String[] args) 
 	{	
         //Set up the content pane.
 		JFrame frame = new JFrame("Test");
-		GridLayout layout = new GridLayout(3,3,3,3);
+		GridLayout layout = new GridLayout(4,3,3,3);
 		JPanel test = new JPanel();
 		JButton but1 = new JButton(" ");
 		JButton but2 = new JButton(" ");
@@ -20,6 +20,9 @@ public class TicTacToeTest
 		JButton but7 = new JButton(" ");
 		JButton but8 = new JButton(" ");
 		JButton but9 = new JButton(" ");
+		String[] playerList = new String[]{"X","O"};
+		JComboBox player = new JComboBox(playerList);
+		player.setFont(new Font("Arial", Font.PLAIN, 40));
 		test.setLayout(layout);
 		test.add(but1);
 		test.add(but2);
@@ -30,6 +33,7 @@ public class TicTacToeTest
 		test.add(but7);
 		test.add(but8);
 		test.add(but9);
+		test.add(player);
 		frame.add(test);
 		but1.addActionListener(new ActionListener()
 		{
@@ -37,6 +41,8 @@ public class TicTacToeTest
 			{
 				but1.setText("X");
 				but1.setFont(new Font("Arial", Font.PLAIN, 40));
+				but1.setEnabled(false);
+				player.setEnabled(false);
 			}
 		});
         //Display the window.
